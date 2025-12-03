@@ -21,7 +21,7 @@ public class SongService {
 
 
     public Song addSong(SongRequest request) throws IOException {
-        Map<String,Object> audioUploadResult = cloudinary.uploader().upload(request.getAudiofile().getBytes(), ObjectUtils.asMap("resource_type", "video"));
+        Map<String,Object> audioUploadResult = cloudinary.uploader().upload(request.getAudioFile().getBytes(), ObjectUtils.asMap("resource_type", "video"));
         Map<String,Object> imageUploadResult = cloudinary.uploader().upload(request.getImageFile().getBytes(), ObjectUtils.asMap("resource_type", "image"));
 
         double durationSeconds = (Double)audioUploadResult.get("duration");
